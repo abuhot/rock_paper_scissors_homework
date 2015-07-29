@@ -47,6 +47,8 @@ class GameController < ApplicationController
 
     # Retrieving all past moves in order to draw the log
     @all_moves = Move.all
+    #added on train
+    @count = @all_moves.count
 
     rock_moves = @all_moves.where({:user_move => "rock"})
     paper_moves = @all_moves.where({:user_move => "paper"})

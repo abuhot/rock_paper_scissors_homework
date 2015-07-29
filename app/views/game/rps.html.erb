@@ -82,7 +82,7 @@
       <div class="panel-heading">
         <h5 class="panel-title">
           Complete history
-          (11)
+          (<%= @count %>)
         </h5>
       </div>
 
@@ -95,83 +95,23 @@
           <th>Tie</th>
         </tr>
 
-          <tr>
-            <td>rock</td>
-            <td>scissors</td>
-            <td>1</td>
-            <td>0</td>
-            <td>0</td>
-          </tr>
-          <tr>
-            <td>rock</td>
-            <td>rock</td>
-            <td>0</td>
-            <td>0</td>
-            <td>1</td>
-          </tr>
-          <tr>
-            <td>rock</td>
-            <td>scissors</td>
-            <td>1</td>
-            <td>0</td>
-            <td>0</td>
-          </tr>
-          <tr>
-            <td>paper</td>
-            <td>paper</td>
-            <td>0</td>
-            <td>0</td>
-            <td>1</td>
-          </tr>
-          <tr>
-            <td>scissors</td>
-            <td>rock</td>
-            <td>0</td>
-            <td>1</td>
-            <td>0</td>
-          </tr>
-          <tr>
-            <td>scissors</td>
-            <td>scissors</td>
-            <td>0</td>
-            <td>0</td>
-            <td>1</td>
-          </tr>
-          <tr>
-            <td>scissors</td>
-            <td>scissors</td>
-            <td>0</td>
-            <td>0</td>
-            <td>1</td>
-          </tr>
-          <tr>
-            <td>scissors</td>
-            <td>paper</td>
-            <td>1</td>
-            <td>0</td>
-            <td>0</td>
-          </tr>
-          <tr>
-            <td>scissors</td>
-            <td>rock</td>
-            <td>0</td>
-            <td>1</td>
-            <td>0</td>
-          </tr>
-          <tr>
-            <td>paper</td>
-            <td>scissors</td>
-            <td>0</td>
-            <td>1</td>
-            <td>0</td>
-          </tr>
-          <tr>
-            <td>rock</td>
-            <td>scissors</td>
-            <td>1</td>
-            <td>0</td>
-            <td>0</td>
-          </tr>
+        <% @all_moves.each do |moves| %>
+
+        <tr>
+          <td><%= moves.user_move %></td>
+          <td><%= moves.computer_move %></td>
+          <td><%= moves.user_wins %></td>
+          <td><%= moves.computer_wins %></td>
+          <td><%= if moves.tie == nil
+                      "0"
+                  else
+                    moves.tie
+                   end
+                   %></td>
+        </tr>
+
+        <% end %>
+
       </table>
     </div>
   </div>
